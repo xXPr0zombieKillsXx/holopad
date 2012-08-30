@@ -20,4 +20,8 @@ BETA 7:
 [ ] Important things that I forgot about but people will tell me to do (maybe you?!)
 [ ] Model selection list on model re-selection button
 [ ] Clamp initial window positions to screen bounds (SetScreenLock is ineffective for that)
+[ ] Add checkbox for autosave on close, custom autosave interval and files
+[ ] Investigate cre's autosave_onclose "main project" bug
+[ ] Remove the clipplane warnings
+[ ] Adaptive grid size
 }}}
