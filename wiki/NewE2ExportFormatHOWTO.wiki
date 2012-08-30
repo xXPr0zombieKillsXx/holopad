@@ -35,7 +35,7 @@ if (first() | duped())
 
     function number addHolo(Pos:vector, Scale:vector, Colour:vector4, Angles:angle, Model:string, Material:string, Parent:number)
     {
-        if (holoRemainingSpawns() < 1) {print("This model has too many holos to spawn! (" + TotalHolos + " holos!)"), return 0}
+        if (holoRemainingSpawns() < 1) {error("This model has too many holos to spawn! (" + TotalHolos + " holos!)"), return 0}
         
         holoCreate(LastHolo, E:toWorld(Pos), Scale, E:toWorld(Angles))
         holoModel(LastHolo, Model)
@@ -80,7 +80,7 @@ if (first() | duped())
     ##########
     
     TotalHolos = Holos:count()
-    if (1 > holoClipsAvailable()) {print("A holo has too many clips to spawn on this server! (Max is " + holoClipsAvailable() + ")")}
+    if (1 > holoClipsAvailable()) {error("A holo has too many clips to spawn on this server! (Max is " + holoClipsAvailable() + ")")}
 }
 
 
@@ -125,7 +125,7 @@ This may be difficult to understand at first, so I'll break it down into chunks 
 {{{
 function number addHolo(Pos:vector, Scale:vector, Colour:vector4, Angles:angle, Model:string, Material:string, Parent:number)
     {
-        if (holoRemainingSpawns() < 1) {print("This model has too many holos to spawn! (" + TotalHolos + " holos!)"), return 0}
+        if (holoRemainingSpawns() < 1) {error("This model has too many holos to spawn! (" + TotalHolos + " holos!)"), return 0}
         
         holoCreate(LastHolo, E:toWorld(Pos), Scale, E:toWorld(Angles))
         holoModel(LastHolo, Model)
@@ -156,7 +156,7 @@ addHolo is used to create each holo that you've made inside Holopad.
 The first line does exception checking to make sure we can spawn the model;
 
 {{{
-if (holoRemainingSpawns() < 1) {print("This model has too many holos to spawn! (" + TotalHolos + " holos!)"), return 0}
+if (holoRemainingSpawns() < 1) {error("This model has too many holos to spawn! (" + TotalHolos + " holos!)"), return 0}
 }}}
 
 If the remaining number of spawnable holos is ever 0 (e.g. less than 1), then we cannot add a holo, and therefore we cannot finish spawning the model.
