@@ -198,7 +198,7 @@ BASEHOLO = <any holo number>
 ===Clipping Planes===
 
 {{{
-local Key = LastHolo + "_"
+        local Key = LastHolo + "_"
         local I=1
         while (Clips:exists(Key + I))
         {
@@ -211,7 +211,7 @@ local Key = LastHolo + "_"
         return LastHolo
 }}}
 
-In the Hologram definitions (see below), we create clip plane definitions.  Clip planes are stored by a string index of the format "<Holo number>_<Clip number>".  In the segment above, we use this fact along with a loop to discover all of the clip planes that belong to the holo (if any exist), and then apply the clipping planes to the holo.
+In the Hologram definitions (see below), we create clip plane definitions.  Clip planes are stored by a string index of the format "<Holo number>`_`<Clip number>".  In the segment above, we use this fact along with a loop to discover all of the clip planes that belong to the holo (if any exist), and then apply the clipping planes to the holo.
 
 After we've applied the clipping planes, the holo is fully created.  We can return the Holo's index and then exit the function.
 
@@ -229,9 +229,11 @@ The holo index is the same as the holo's array index.
 
 Therefore, the holo definitions follow this form;
 
-{{{#[ <Holo's name> ]#    Holos[<Holo index>, array] = array(Position, Scale, Colour, Angles, Model, Material, Parent)}}}
+{{{
+#[ <Holo's name> ]#    Holos[<Holo index>, array] = array(Position, Scale, Colour, Angles, Model, Material, Parent)
+}}}
 
-Notice that the colour is stored as a 4-dimensional vector.  The XYZW elements translate to RGBA respectively.  Model can be a holo model name or, if holoModelAny is installed, it may be a full model path.  Parent may be any number in the holo indices, or 0 to represent "no parent"
+Notice that the colour is stored as a 4-dimensional vector.  The XYZW elements translate to RGBA respectively.  Model can be a holo model name or, if holoModelAny is installed, it may be a full model path.  Parent may be any number in the holo indices, or 0 to represent "no parent".
 
 ===Clip definitions===
 
