@@ -15,6 +15,8 @@ Here's an example export of a holo model using Export 2;
 # Holograms authored by Unnamed on 28/08/2012
 # Exported from Holopad 26/08/2012 by Bubbus
 # Thanks to Vercas for the original E2 export template!
+#
+# FOR AN EXPLANATION OF THE CODE BELOW, VISIT http://code.google.com/p/holopad/wiki/NewE2ExportFormatHOWTO
 ##### 
 
 #####
