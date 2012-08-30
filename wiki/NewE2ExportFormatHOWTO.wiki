@@ -323,7 +323,7 @@ Regardless of what happens, we pause the chip for a second to allow the ops to "
 
 Because the indices in the Holos array correspond directly to the holo index once spawned, you can use the Holos index in your code.
 
-For example, we find the pointer holo in a speedometer and rotate it to display the speed;
+For example, we find the pointer holo in a speedometer and rotate it to display the speed; (thanks to [http://facepunch.com/member.php?u=423354 irontires] for this example)
 
 {{{
 #[ pointer ]#   Holos[6, array] = array(vec(0.0000, -32.9132, 41.2338), vec(0.3000, 0.3000, 13.0740), vec4(255, 255, 255, 255),ang(0.0000, 180.0000, 0.0000), "hq_rcylinder", "", 0)
