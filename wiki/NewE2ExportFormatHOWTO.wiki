@@ -365,7 +365,7 @@ if (HolosSpawned)
 }
 }}}
 
-Notice that in holoAng, we use the constant named POINTER instead of the number 6.  Because we store 6 inside POINTER, it means the same thing when the chip is run.  But here's the important part - when you copy/paste the code from an old export to a new export (and the pointer's new index becomes 2), all you have to do is change `POINTER = 6` to `POINTER = 2` and _the code will still work!_  This is good practice and I won't apologize for causing people to adopt it.
+Notice that in holoAng, we use the constant named POINTER instead of the number 6.  Because we store 6 inside POINTER, it means the same thing when the chip is run.  But here's the important part - when you copy/paste the code from an old export to a new export (and the pointer's new index becomes 2), all you have to do is change `POINTER = 6` to `POINTER = 2` and _the code will still work!_  This is good practice and I won't apologize for causing people to adopt it.  This is also a good example of why _*you should give names to your important holos!*_  It is _very_ difficult to figure out where your important holos are if they don't have names.
 
 
 
