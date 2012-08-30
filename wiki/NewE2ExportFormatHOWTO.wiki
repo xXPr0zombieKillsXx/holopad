@@ -4,6 +4,9 @@
 Some people are getting confused about the new Holopad E2 export format so here's a quick-start tutorial on how to understand and write code for the new exported code.
 
 
+<wiki:toc max_depth="3" />
+
+
 = *Export 2* =
 
 Here's an example export of a holo model using Export 2;
