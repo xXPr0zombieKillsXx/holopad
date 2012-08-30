@@ -113,7 +113,7 @@ This may be difficult to understand at first, so I'll break it down into chunks 
 
 
 
-==*addHolo*==
+==Chunk 1: *addHolo*==
 
 
 
@@ -211,7 +211,7 @@ In the Hologram definitions (see below), we create clip plane definitions.  Clip
 After we've applied the clipping planes, the holo is fully created.  We can return the Holo's index and then exit the function.
 
 
-==*Hologram Definitions*==
+==Chunk 2: *Hologram Definitions*==
 
 Notice the addHolo function header;
 
@@ -239,7 +239,7 @@ Clips["<Holo index>_<Clip index>", array] = array(Clip center position, Clip nor
 As mentioned in the addHolo section, the Clip index is the parent holo's number and the clip's number, separated by an underscore.
 
 
-==*Custom code*==
+==Chunk 3: *Custom code*==
 
 {{{
 
@@ -256,7 +256,7 @@ if (HolosSpawned)
 Can't say much more than the comments do.  The code in the second part only gets run once all of the holograms have finished being spawned.  You should only use the first part for code which doesn't use the holos, or code that automatically detects which holos are currently spawned.
 
 
-==*Holo spawn loop*==
+==Chunk 4: *Holo spawn loop*==
 
 {{{
 else
@@ -315,7 +315,9 @@ After we're done in the loop above, we need to check where we stopped because we
 Regardless of what happens, we pause the chip for a second to allow the ops to "cool down" and allow our holo allowance to reset.  This has the side effect of stopping the chip after success - the side effects are beneficial here also.
 
 
-==*How to use the holos in your code*==
+
+
+=*How to use the holos in your code*=
 
 Because the indices in the Holos array correspond directly to the holo index once spawned, you can use the Holos index in your code.
 
@@ -364,6 +366,8 @@ if (HolosSpawned)
 }}}
 
 Notice that in holoAng, we use the constant named POINTER instead of the number 6.  Because we store 6 inside POINTER, it means the same thing when the chip is run.  But here's the important part - when you copy/paste the code from an old export to a new export (and the pointer's new index becomes 2), all you have to do is change `POINTER = 6` to `POINTER = 2` and _the code will still work!_  This is good practice and I won't apologize for causing people to adopt it.
+
+
 
 
 =Final words=
