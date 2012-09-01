@@ -6,7 +6,7 @@ BETA 6:
 [/] Properly integrate multiple selection (make scale work properly)
 [X] More grid styles (selection by corner button menu, persistent)
 [X] Overhaul E2 exporter (make it not suck)
-[ ] E2 export configuration (long/short form, parenting, ...) (tyvm lubstar)
+[X] E2 export configuration (long/short form, parenting, ...) (tyvm lubstar)
 [ ] Tool-Utility system (mirroring, measuring etc)
 BETA 7:
 [ ] Expand on keyboard binds (ty kai + radon)
