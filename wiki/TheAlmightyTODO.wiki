@@ -1,6 +1,6 @@
 =*TO DO:*=
+<code language="xml">
 {{{
-<pre>
 [ ] = TODO, [/] = Partially done, [-] = Cancelled, [X] = Completed!
 
 BETA 6:
@@ -26,5 +26,5 @@ BETA 7:
 [X] Remove the clipplane warnings
 [ ] Adaptive grid size
 [ ] Important things that I forgot about but people will tell me to do (maybe you?!)
-</pre>
 }}}
+</code>
