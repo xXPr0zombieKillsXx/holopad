@@ -11,6 +11,7 @@ Some people are getting confused about the new Holopad E2 export format so here'
 
 Here's an example export of a holo model using Export 2;
 
+<code language="c">
 {{{
 @name Holopad Export
 
@@ -111,6 +112,7 @@ else
     interval(1000)
 }
 }}}
+</code>
 
 
 This may be difficult to understand at first, so I'll break it down into chunks and explain each part;
@@ -122,6 +124,7 @@ This may be difficult to understand at first, so I'll break it down into chunks 
 
 
 
+<code language="c">
 {{{
 function number addHolo(Pos:vector, Scale:vector, Colour:vector4, Angles:angle, Model:string, Material:string, Parent:number)
     {
@@ -148,6 +151,7 @@ function number addHolo(Pos:vector, Scale:vector, Colour:vector4, Angles:angle, 
         return LastHolo
     }
 }}}
+</code>
 
 
 ===Error Checking===
@@ -155,34 +159,41 @@ function number addHolo(Pos:vector, Scale:vector, Colour:vector4, Angles:angle, 
 addHolo is used to create each holo that you've made inside Holopad. 
 The first line does exception checking to make sure we can spawn the model;
 
+<code language="c">
 {{{
 if (holoRemainingSpawns() < 1) {error("This model has too many holos to spawn! (" + TotalHolos + " holos!)"), return 0}
 }}}
+</code>
 
 If the remaining number of spawnable holos is ever 0 (e.g. less than 1), then we cannot add a holo, and therefore we cannot finish spawning the model.
 
 
 ===Holo creation===
 
+<code language="c">
 {{{
         holoCreate(LastHolo, E:toWorld(Pos), Scale, E:toWorld(Angles))
         holoModel(LastHolo, Model)
         holoMaterial(LastHolo, Material)
         holoColor(LastHolo, vec(Colour), Colour:w())
 }}}
+</code>
 
 Here, we create the holo and apply its characteristics.  Notice the usage of E:toWorld.  The holos are spawned _local_ to E (the E2 chip).  This means that the model will spawn at the same angles as the E2 chip - useful for a range of purposes.
 
 
 ===Parenting===
 
+<code language="c">
 {{{
         if (Parent > 0) {holoParent(LastHolo, Parent)}
         else {holoParent(LastHolo, E)}
 }}}
+</code>
 
 In this segment we figure out how to parent the holo.  If you didn't define a parent for the holo inside Holopad, the holo becomes parented to the E2 chip - allowing you to move the holo model around with the E2 chip.  You can modify this segment in many ways to produce different behaviour.  If you want your holo model to stay still after spawning, remove the _else_ line.  If you want to parent all of your holos to a single holo so you can use holoPos to move the entire model, replace the segment with this one;
 
+<code language="c">
 {{{
 # Place this in the E2 definitions;
 @persist BASEHOLO
@@ -193,10 +204,12 @@ BASEHOLO = <any holo number>
         if (Parent > 0) {holoParent(LastHolo, Parent)}
         elseif (LastHolo != BASEHOLO) {holoParent(LastHolo, BASEHOLO)}
 }}}
+</code>
 
 
 ===Clipping Planes===
 
+<code language="c">
 {{{
         local Key = LastHolo + "_"
         local I=1
@@ -210,6 +223,7 @@ BASEHOLO = <any holo number>
 
         return LastHolo
 }}}
+</code>
 
 In the Hologram definitions (see below), we create clip plane definitions.  Clip planes are stored by a string index of the format "<Holo number>`_`<Clip number>".  In the segment above, we use this fact along with a loop to discover all of the clip planes that belong to the holo (if any exist), and then apply the clipping planes to the holo.
 
@@ -220,18 +234,22 @@ After we've applied the clipping planes, the holo is fully created.  We can retu
 
 Notice the addHolo function header;
 
+<code language="c">
 {{{
 function number addHolo(Pos:vector, Scale:vector, Colour:vector4, Angles:angle, Model:string, Material:string, Parent:number)
 }}}
+</code>
 
 This header defines the order in which the holo information appears in the holo definitions.  Positon first, then Scale second, Colour third...
 The holo index is the same as the holo's array index.
 
 Therefore, the holo definitions follow this form;
 
+<code language="c">
 {{{
 #[ <Holo's name> ]#    Holos[<Holo index>, array] = array(Position, Scale, Colour, Angles, Model, Material, Parent)
 }}}
+</code>
 
 Notice that the colour is stored as a 4-dimensional vector.  The XYZW elements translate to RGBA respectively.  Model can be a holo model name or, if holoModelAny is installed, it may be a full model path.  Parent may be any number in the holo indices, or 0 to represent "no parent".
 
@@ -239,15 +257,18 @@ Notice that the colour is stored as a 4-dimensional vector.  The XYZW elements t
 
 Although less obvious than the Holo definitions, the Clip definitions follow this form;
 
+<code language="c">
 {{{
 Clips["<Holo index>_<Clip index>", array] = array(Clip center position, Clip normal direction)
 }}}
+</code>
 
 As mentioned in the addHolo section, the Clip index is the parent holo's number and the clip's number, separated by an underscore.
 
 
 ==Chunk 3: *Custom code*==
 
+<code language="c">
 {{{
 
 
@@ -259,12 +280,14 @@ if (HolosSpawned)
     #Your code goes here if it needs all of the holograms to be spawned!
 }
 }}}
+</code>
 
 Can't say much more than the comments do.  The code in the second part only gets run once all of the holograms have finished being spawned.  You should only use the first part for code which doesn't use the holos, or code that automatically detects which holos are currently spawned.
 
 
 ==Chunk 4: *Holo spawn loop*==
 
+<code language="c">
 {{{
 else
 {
@@ -286,11 +309,13 @@ else
     interval(1000)
 }
 }}}
+</code>
 
 This code runs every second while the holos haven't finished spawning.  If your holo model is huge (on most servers, if your model uses more than 30 holos) then the chip may take multiple seconds to finish spawning your model.
 
 ===The loop===
 
+<code language="c">
 {{{
     while (LastHolo <= Holos:count() & holoCanCreate() & perf())
     {
@@ -299,12 +324,14 @@ This code runs every second while the holos haven't finished spawning.  If your 
         LastHolo++
     }
 }}}
+</code>
 
 This is where the work gets done.  While we are still able to process holos (holoCanCreate tells us if we're still allowed to spawn holos, and perf() tells us when to take a break to stop us breaking the chip ), we select a holo from the holo definitions and we create it.  This allows us to create as many holos as we can in a single go.
 
 
 ===Checking afterwards===
 
+<code language="c">
 {{{
     if (LastHolo > Holos:count())
     {
@@ -316,6 +343,7 @@ This is where the work gets done.  While we are still able to process holos (hol
 
     interval(1000)
 }}}
+</code>
 
 After we're done in the loop above, we need to check where we stopped because we can exit the loop for three reasons - we've achieved success, we've temporarily run out of holos or we've been working too hard.  Because we only care about success, we check to see if we've spawned the last holo.  Because we spawn the holos in order, all we have to do is check if the last holo has been spawned.  If it has, we declare success and we clean up the holo and clip definitions to save space.
 
@@ -330,6 +358,7 @@ Because the indices in the Holos array correspond directly to the holo index onc
 
 For example, we find the pointer holo in a speedometer and rotate it to display the speed; (thanks to [http://facepunch.com/member.php?u=423354 irontires] for this example)
 
+<code language="c">
 {{{
 #[ pointer ]#   Holos[6, array] = array(vec(0.0000, -32.9132, 41.2338), vec(0.3000, 0.3000, 13.0740), vec4(255, 255, 255, 255),ang(0.0000, 180.0000, 0.0000), "hq_rcylinder", "", 0)
 
@@ -344,9 +373,11 @@ if (HolosSpawned)
     holoAng(6, E:toWorld(ang(0,Degrees,0)))
 }
 }}} 
+</code>
 
 *BE AWARE:*  The holo indices do not stay the same when you export!  If your pointer holo is 6, it might change to be number 2 or 5 or 10000 the next time you export to E2.  Therefore, it is good practice to use CONSTANTS to store your holo indices.  Here's an example;
 
+<code language="c">
 {{{
 @persist POINTER
 
@@ -371,6 +402,7 @@ if (HolosSpawned)
     holoAng(POINTER, E:toWorld(ang(0,Degrees,0)))
 }
 }}}
+</code>
 
 Notice that in holoAng, we use the constant named POINTER instead of the number 6.  Because we store 6 inside POINTER, it means the same thing when the chip is run.  But here's the important part - when you copy/paste the code from an old export to a new export (and the pointer's new index becomes 2), all you have to do is change `POINTER = 6` to `POINTER = 2` and _the code will still work!_  This is good practice and I won't apologize for causing people to adopt it.  This is also a good example of why _*you should give names to your important holos!*_  It is _very_ difficult to figure out where your important holos are if they don't have names.
 
