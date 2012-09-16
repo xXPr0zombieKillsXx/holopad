@@ -10,6 +10,8 @@ BETA 7:
 [X] Material selection list [i]maybe[/i] (ty emperor)
 [/] Persistence
 [ ] Persist window positions and sizes (ty cre)
+[ ] Selection box tool
+[ ] Enable multiple selection on selection list
 BETA 8:
 [ ] Group transformations
 [ ] Video tutorials (I need a good mic and silence, I'll definitely start on these when GM13 comes out)
