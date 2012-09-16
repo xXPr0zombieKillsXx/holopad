@@ -3,12 +3,6 @@
 {{{
 [ ] = TODO, [/] = Partially done, [-] = Cancelled, [X] = Completed!
 
-BETA 6:
-[X] Make parented scale work properly
-[X] More grid styles (selection by corner button menu, persistent)
-[X] Overhaul E2 exporter (make it not suck)
-[X] E2 export configuration (long/short form, parenting, ...) (tyvm lubstar)
-[ ] Tool-Utility system (mirroring, measuring etc)
 BETA 7:
 [ ] Expand on keyboard binds (ty kai + radon)
 [ ] Camera option; hammer-style with wasd (ty kai)
@@ -16,14 +10,10 @@ BETA 7:
 [X] Material selection list [i]maybe[/i] (ty emperor)
 [/] Persistence
 [ ] Persist window positions and sizes (ty cre)
-?!?!?!:
+BETA 8:
 [ ] Group transformations
 [ ] Video tutorials (I need a good mic and silence, I'll definitely start on these when GM13 comes out)
 [ ] Model selection list on model re-selection button
-[X] Clamp initial window positions to screen bounds (SetScreenLock is ineffective for that)
-[X] Add checkbox for autosave on close, custom autosave interval and files
-[X] Investigate cre's autosave_onclose "main project" bug
-[X] Remove the clipplane warnings
 [ ] Adaptive grid size
 [ ] Important things that I forgot about but people will tell me to do (maybe you?!)
 }}}
