@@ -4,7 +4,7 @@
 [ ] = TODO, [/] = Partially done, [-] = Cancelled, [X] = Completed!
 
 BETA 7:
-[ ] Expand on keyboard binds (ty kai + radon)
+[/] Expand on keyboard binds (ty kai + radon)
 [ ] Camera option; hammer-style with wasd (ty kai)
 [X] Editable dongle orientation (angle or holo-based) (ty lubstar)
 [X] Material selection list [i]maybe[/i] (ty emperor)
