@@ -4,6 +4,7 @@
 [ ] = TODO, [/] = Partially done, [-] = Cancelled, [X] = Completed!
 
 BETA 7:
+[ ] Copy/paste buttons for orientation
 [X] Camera option; hammer-style with wasd (ty kai)
 [X] Editable dongle orientation (angle or holo-based) (ty lubstar)
 [X] Material selection list [i]maybe[/i] (ty emperor)
