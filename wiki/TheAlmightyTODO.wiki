@@ -22,9 +22,14 @@ ONGOING:
 [/] Expand on keyboard binds (suggest some! you!!)
 [/] Persistence
 ??????:
+[ ] [addons\holopad\lua\holopad\serialize\lib_common.lua:155] attempt to concatenate local 'v' (a table value) (ty Zoombahh)
 [ ] [@addons\holopad\lua\holopad\mouse\obj_movemode.lua:152] Tried to move an Entity but Entity's screen position was undefined!
 [X] [addons\holopad\lua\holopad\gui\dholopad.lua:114] attempt to call method 'Close' (a nil value)
 [X] Editable background colour
 [X] White Lights 2
+[ ] Decouple entity properties from Select tool-menu (ty Zoombahh)
+[ ] What is wrong with the colour picker?!?!
+[ ] Make a list of hotkeys! (ty Zoombahh)
+[ ] Make grid movement easier (ty Zoombahh)
 }}}
 </code>
