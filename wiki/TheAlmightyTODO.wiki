@@ -31,5 +31,7 @@ ONGOING:
 [ ] What is wrong with the colour picker?!?!
 [ ] Make a list of hotkeys! (ty Zoombahh)
 [ ] Make grid movement easier (ty Zoombahh)
+[ ] Workaround for bad GM13 model scale function (ty Zoombahh)
+[ ] nil-proofing to all file i/o (ty Zoombahh)
 }}}
 </code>
